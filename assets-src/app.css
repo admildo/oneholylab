@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Reusable pieces. Pages and partials use these names so the look lives in one place. */
+@layer base {
+  html { scroll-behavior: smooth; }
+  ::selection { @apply bg-black text-white; }
+  /* Anton is a single-weight condensed display face: always caps, never faux-bold. */
+  .font-logo { @apply font-normal uppercase; letter-spacing: .01em; }
+}
+
+@layer components {
+  .cap      { @apply uppercase tracking-[.08em] text-[11px]; }
+  .btn      { @apply inline-flex min-h-[48px] items-center justify-center border border-black bg-black px-6 text-[11px] uppercase tracking-[.08em] text-white hover:bg-neutral-800 disabled:opacity-40; }
+  .btn-ghost{ @apply bg-white text-black hover:bg-neutral-100; }
+  .btn-light{ @apply border-white bg-white text-black hover:bg-neutral-200; }
+  .btn-outline-light{ @apply border-white bg-transparent text-white hover:bg-white hover:text-black; }
+  .link-u   { @apply underline decoration-1 underline-offset-4 hover:decoration-2; }
+  .nav-link { @apply relative py-1 after:absolute after:inset-x-0 after:-bottom-0.5 after:h-px after:origin-left after:scale-x-0 after:bg-black after:transition-transform hover:after:scale-x-100; }
+  .badge    { @apply inline-flex items-center bg-white px-2 py-1 text-[10px] font-medium uppercase tracking-[.08em] text-black; }
+  .badge-dark{ @apply bg-black text-white; }
+  .chip     { @apply inline-flex min-h-[36px] items-center border border-neutral-300 px-3.5 text-[11px] uppercase tracking-[.06em]; }
+  .chip-on  { @apply border-black bg-black text-white; }
+  .field    { @apply flex flex-col gap-1; }
+  .field > label { @apply text-[11px] uppercase tracking-[.06em] text-muted; }
+  .input    { @apply min-h-[44px] w-full rounded-none border-0 border-b border-black bg-transparent py-2 outline-none focus:border-b-2; }
+  .box-input{ @apply min-h-[40px] border border-neutral-300 bg-white px-3 outline-none focus:border-black; }
+  .boxed    { @apply border border-neutral-300 p-4; }
+  .size     { @apply inline-flex min-h-[44px] min-w-[56px] items-center justify-center border border-neutral-300 text-xs; }
+  .size-on  { @apply border-black shadow-[inset_0_0_0_1px_#000]; }
+  .size-out { @apply cursor-not-allowed text-neutral-500 line-through; }
+  .pill     { @apply inline-flex items-center gap-1.5 border border-neutral-300 px-2.5 py-0.5 text-[11px] whitespace-nowrap; }
+  .th       { @apply px-4 py-2.5 text-left text-[11px] font-medium uppercase tracking-[.06em] text-muted whitespace-nowrap border-b border-line; }
+  .td       { @apply px-4 py-3 border-b border-neutral-100 align-middle; }
+  .panel    { @apply border border-line bg-white; }
+  .panel-h  { @apply flex flex-wrap items-center justify-between gap-3 border-b border-line px-4 py-3.5; }
+}
+
+@layer utilities {
+  .no-scrollbar { scrollbar-width: none; }
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+}

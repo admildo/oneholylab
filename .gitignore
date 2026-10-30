@@ -1,0 +1,8 @@
+node_modules/
+config/config.local.php
+storage/*.log
+public/uploads/products/*
+!public/uploads/products/.gitkeep
+.env
+.DS_Store
+Thumbs.db

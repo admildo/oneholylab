@@ -1,0 +1,10 @@
+# Apache hosting: block directory listing, force PHP errors off, keep uploads from running code.
+Options -Indexes
+<IfModule mod_php.c>
+  php_flag display_errors off
+</IfModule>
+<FilesMatch "\.(php|phtml|phar)$">
+  <If "%{REQUEST_URI} =~ m#/uploads/#">
+    Require all denied
+  </If>
+</FilesMatch>

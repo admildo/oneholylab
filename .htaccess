@@ -1,0 +1,8 @@
+# Lets the site run at http://localhost/oneholylab/ instead of /oneholylab/public/.
+# Every request is served from public/, so src/, config/, sql/ and storage/ are never reachable.
+Options -Indexes
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{REQUEST_URI} !/public/
+  RewriteRule ^(.*)$ public/$1 [L]
+</IfModule>
